@@ -95,27 +95,31 @@ struct SettingsView: View {
                         .foregroundStyle(.secondary)
                 }
 
-                Link(destination: URL(string: "https://example.com/privacy")!) {
-                    HStack {
-                        Text("Privacy Policy")
-                        Spacer()
-                        Image(systemName: "arrow.up.right")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                if let privacyURL = URL(string: "https://example.com/privacy") {
+                    Link(destination: privacyURL) {
+                        HStack {
+                            Text("Privacy Policy")
+                            Spacer()
+                            Image(systemName: "arrow.up.right")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
                     }
+                    .foregroundStyle(.primary)
                 }
-                .foregroundStyle(.primary)
 
-                Link(destination: URL(string: "https://example.com/terms")!) {
-                    HStack {
-                        Text("Terms of Service")
-                        Spacer()
-                        Image(systemName: "arrow.up.right")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                if let termsURL = URL(string: "https://example.com/terms") {
+                    Link(destination: termsURL) {
+                        HStack {
+                            Text("Terms of Service")
+                            Spacer()
+                            Image(systemName: "arrow.up.right")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
                     }
+                    .foregroundStyle(.primary)
                 }
-                .foregroundStyle(.primary)
             }
 
             // Data Management

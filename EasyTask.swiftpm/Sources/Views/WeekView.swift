@@ -165,7 +165,10 @@ struct WeekView: View {
                                 onTap: { selectedTask = task },
                                 onComplete: { taskManager.toggleTaskCompletion(task) }
                             )
-                            .draggable(task.id.uuidString)
+                            .draggable(task.id.uuidString) {
+                                TaskCard(task: task, isCompact: true, onTap: {}, onComplete: {})
+                                    .frame(width: 280)
+                            }
                         }
                     }
 
@@ -218,7 +221,10 @@ struct DayColumn: View {
                         onTap: { onTaskTap(task) },
                         onComplete: { onTaskComplete(task) }
                     )
-                    .draggable(task.id.uuidString)
+                    .draggable(task.id.uuidString) {
+                        CompactTaskRow(task: task, onTap: {}, onComplete: {})
+                            .frame(width: 120)
+                    }
                 }
 
                 // Overflow indicator
